@@ -22,7 +22,9 @@ Die "Pfad"-Spalte zeigt den eben gewählten Dateipfad an.
 
 3. Sobald alle möglichen Antwortmöglichkeiten erstellt worden sind, drückt man auf "Gesamttabelle erstellen" und eine .xlsx-Datei wird im Dateipfad, in dem das Programm ausgeführt worden ist, erstellt.
 
-## Hinweis
+## Hinweise
+
+### Zeichenbeschränkungen
 
 Es ist zu beachten, dass die ersten 31 Zeichen (aufgrund einer Excelzeichenbeschränkung) für alle Ergebnisse eindeutig sind:
 
@@ -35,6 +37,22 @@ Es ist zu beachten, dass die ersten 31 Zeichen (aufgrund einer Excelzeichenbesch
 
 * Schloss A - Schaugartenbewertungen Umfrageergebnis 2023.xlsx
 * Schloss B - Schaugartenbewertungen Umfrageergebnis 2023.xlsx
+
+Um eindeutige Zeichenfolgen aus mehreren Dateien automatisch zu löschen, kann [dieses](https://github.com/nigjakob/nigardenscore/blob/main/RemoveString.ps) PowerShell-Skript angewandt werden. Das Skript kann angepasst werden, sollte sich der Dateiname ändern.
+
+### Ergebnisformat
+
+Die Excel-Tabelle der Ergebnisse muss eindeutige Bewertungsnamen enthalten:
+
+**Falsch:**
+
+* T: 1 T: 0 T: 3 T: 4
+
+**Richtig:**
+
+* Trifft sehr zu: 1 Trifft zu: 0 Trifft eher nicht zu: 3 Trifft gar nicht zu: 4
+
+Sollte das nicht der Fall sein, kann das [zugehörige VBA-Makro](https://github.com/nigjakob/nigardenscore/blob/main/ChangeRatingKeys.vba) verwendet werden, um den Umbenennungsprozess deutlich zu vereinfachen. Das Makro enthält konstante Zellenwerte, was bedeutet, dass es angepasst werden muss, sobald sich die Excel-Tabellen der Umfrageergebnisse ändern. Es ist empfohlen, den Quelltext einmal durchzulesen, bevor das Makro angewandt wird.
 
 # Tabellenformat
 
